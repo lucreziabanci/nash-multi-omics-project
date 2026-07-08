@@ -23,10 +23,10 @@ This pipeline has been tested on the following dataset:
 
 Overview of the pipeline:
 
-1) `01_RNA-seq_download_and_quantification.sh.txt`: download SRA files and perform transcript quantification using Salmon.
-2) `02_RNA-seq_quantification_and_pca.R`: import Salmon quantification files and perform PCA analysis.
-3) `03_RNA-seq_differential_analysis_and_volcano.R`: perform differential expression analysis using DESeq2 and generate volcano plots.
-4) `04_RNA-seq_enrichement_and_kegg_analysis.R`: perform GSEA, ORA, and KEGG pathway analyses.
+1) `RNA-seq_download_and_quantification.sh`: download SRA files and perform transcript quantification using Salmon.
+2) `RNA-seq_quantification_and_pca.R`: import Salmon quantification files and perform PCA analysis.
+3) `RNA-seq_differential_analysis_and_volcano.R`: perform differential expression analysis using DESeq2 and generate volcano plots.
+4) `RNA-seq_enrichement_and_kegg_analysis.R`: perform GSEA, ORA, and KEGG pathway analyses.
 
 ### Dependencies
 
