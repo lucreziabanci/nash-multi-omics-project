@@ -38,15 +38,14 @@ The following annotation files should be manually downloaded and placed inside t
 The following R packages are required:
 
 ```
-tximport
-DESeq2
-biomaRt
-clusterProfiler
-enrichplot
-ggplot2
-KEGGREST
+tximport (v 1.38.2)
+DESeq2 (v 1.50.0)
+biomaRt (v 2.66.2)
+clusterProfiler (4.18.4)
+enrichplot (v 1.30.5)
+ggplot2 (v 4.0.0)
+KEGGREST (1.50.0)
 ```
-
 
 ### Output
 The pipeline generates:
@@ -59,4 +58,4 @@ The pipeline generates:
 
 # Author
 
-Lucrezia Banci
+Lucrezia Banci, Lorenzo Casbarra, and Matteo Ramazzotti
