@@ -4,7 +4,7 @@ NASH multi-omics project based on the analysis of transcriptomics, chromatin acc
 ## Transcriptomics Analysis
 RNA-seq differential expression and pathway enrichment analysis in NASH.
 
-This repository contains a bioinformatics workflow for the analysis of RNA-seq data from NASH samples:
+This repository contains a bioinformatics workflow for the analysis of RNA-seq data from liver samples:
 - SRA download and FASTQ file generation;
 - Transcript quantification using Salmon;
 - PCA analysis;
@@ -14,31 +14,30 @@ This repository contains a bioinformatics workflow for the analysis of RNA-seq d
 - Over-Representation Analysis (ORA);
 - KEGG pathway overlap analysis.
 
-### Dataset
-GEO accession: GSE126848
-Organism: Homo sapiens
+This pipeline has been tested on the following dataset:
 
-### Repository structure
-scripts/
-metadata/
-results/
-plots/
+- **GEO accession**: GSE126848
+- **Organism**: Homo sapiens
 
-### Scripts
-01_download_and_quantification.sh: download SRA files and perform transcript quantification using Salmon.
+### Usage
 
-01_import_quantification_and_pca.R: import Salmon quantification files and perform PCA analysis.
+Overview of the pipeline:
 
-02_differential_expression_and_volcano.R: perform differential expression analysis using DESeq2 and generate volcano plots.
+1) `01_RNA-seq_download_and_quantification.sh.txt`: download SRA files and perform transcript quantification using Salmon.
+2) `02_RNA-seq_quantification_and_pca.R`: import Salmon quantification files and perform PCA analysis.
+3) `03_RNA-seq_differential_analysis_and_volcano.R`: perform differential expression analysis using DESeq2 and generate volcano plots.
+4) `04_RNA-seq_enrichement_and_kegg_analysis.R`: perform GSEA, ORA, and KEGG pathway analyses.
 
-03_enrichment_and_kegg_analysis.R: perform GSEA, ORA, and KEGG pathway analyses.
+### Dependencies
 
-### Required annotation files
-The following files should be manually downloaded and placed inside the metadata/ directory before running enrichment analyses:
-`c5.go.bp.v2024.1.Hs.symbols.gmt`
-Human.GRCh38.p13.annot.tsv
+The following annotation files should be manually downloaded and placed inside the metadata/ directory before running enrichment analyses:
 
-### Main R packages
+- `c5.go.bp.v2024.1.Hs.symbols.gmt`
+- `Human.GRCh38.p13.annot.tsv`
+
+The following R packages are required:
+
+```
 tximport
 DESeq2
 biomaRt
@@ -46,6 +45,8 @@ clusterProfiler
 enrichplot
 ggplot2
 KEGGREST
+```
+
 
 ### Output
 The pipeline generates:
