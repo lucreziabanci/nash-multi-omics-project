@@ -95,6 +95,7 @@ The following R packages are required:
 
 ```
 ATACseqQC (v1.34.0)
+MACS3
 rtracklayer (v1.70.1)
 GenomicRanges (v1.62.0)
 ChIPpeakAnno (v3.44.0)
