@@ -38,13 +38,13 @@ The following annotation files should be manually downloaded and placed inside t
 The following R packages are required:
 
 ```
-tximport (v 1.38.2)
-DESeq2 (v 1.50.0)
-biomaRt (v 2.66.2)
-clusterProfiler (4.18.4)
-enrichplot (v 1.30.5)
-ggplot2 (v 4.0.0)
-KEGGREST (1.50.0)
+tximport (v1.38.2)
+DESeq2 (v1.50.0)
+biomaRt (v2.66.2)
+clusterProfiler (v4.18.4)
+enrichplot (v1.30.5)
+ggplot2 (v4.0.0)
+KEGGREST (v1.50.0)
 ```
 
 ### Output
@@ -99,11 +99,11 @@ rtracklayer (v1.70.1)
 GenomicRanges (v1.62.0)
 ChIPpeakAnno (v3.44.0)
 csaw (v1.44.0)
-DESeq2 (v 1.50.0)
-clusterProfiler (4.18.4)
-enrichplot (v 1.30.5)
-ggplot2 (v 4.0.0)
-KEGGREST (1.50.0)
+DESeq2 (v1.50.0)
+clusterProfiler (v4.18.4)
+enrichplot (v1.30.5)
+ggplot2 (v4.0.0)
+KEGGREST (v1.50.0)
 ```
 
 ### Output
@@ -116,7 +116,7 @@ The pipeline generates:
 - ORA pathway analyses
 - KEGG overlap analyses
 
-## Epigenomic Analysis
+## Epigenomics Analysis
 Array DNA methylation differential expression and pathway enrichment analysis in NASH using GPL13534 array.
 
 This repository contains a bioinformatics workflow for the analysis of array data from liver samples:
@@ -154,20 +154,19 @@ The following annotation files should be manually downloaded and placed inside t
 The following R packages are required:
 
 ```
-GEOquery (v 2.78.0)
-limma (v 3.66.0)
-ggplot2 (v 4.0.0)
-Biobase (v 2.70.0)
-minfi (v 1.56.0)
-IlluminaHumanMethylation450kmanifest (v 0.4.0)
-lluminaHumanMethylation450kanno.ilmn12.hg19 (v 0.6.1)
-clusterProfiler (4.18.4)
-enrichplot (v 1.30.5)
-org.Hs.eg.db (v 3.22.0)
-dplyr (v 1.1.4)
-VennDiagram (v 1.7.3)
-KEGGREST (1.50.0)
-
+GEOquery (v2.78.0)
+limma (v3.66.0)
+ggplot2 (v4.0.0)
+Biobase (v2.70.0)
+minfi (v1.56.0)
+IlluminaHumanMethylation450kmanifest (v0.4.0)
+lluminaHumanMethylation450kanno.ilmn12.hg19 (v0.6.1)
+clusterProfiler (v4.18.4)
+enrichplot (v1.30.5)
+org.Hs.eg.db (v3.22.0)
+dplyr (v1.1.4)
+VennDiagram (v1.7.3)
+KEGGREST (v1.50.0)
 ```
 
 ### Output
@@ -179,6 +178,53 @@ The pipeline generates:
 - ORA pathway analyses
 - KEGG overlap analyses
 
+## Proteomics Analysis
+LC/MS proteomics differential expression and pathway enrichment analysis in NASH using MaxQuant (v2.7.5.0) data.
+
+This repository contains a bioinformatics workflow for the analysis of array data from liver samples:
+- Upload proteinGroups.txt file;
+- Differential expression analysis with limma;
+- Volcano plot visualization;
+- Gene Set Enrichment Analysis (GSEA);
+- Over-Representation Analysis (ORA);
+- KEGG pathway overlap analysis.
+
+This pipeline has been tested on the following dataset:
+
+- **PRIDE accession**: PXD026717
+- **Organism**: Homo sapiens
+
+### Usage
+
+Overview of the pipeline:
+
+1) `data_upload_and_differential_analysis.R`: upload data from MaxQuant analysis, perform differential analysis using limma and generate volcano plot.
+2) `functional_analysis.R`: perform ORA, GSEA and KEGG analysis.
+
+### Dependencies
+
+The following annotation files should be manually downloaded and placed inside the metadata/ directory before running enrichment analyses:
+
+- `c5.go.bp.v2024.1.Hs.symbols.gmt`
+- `Human.GRCh38.p13.annot.tsv`
+
+The following R packages are required:
+
+```
+limma (v3.66.0)
+ggplot2 (v4.0.0)
+org.Hs.eg.db (v3.22.0)
+clusterProfiler (v4.18.4)
+KEGGREST (v1.50.0)
+```
+
+### Output
+The pipeline generates:
+- Volcano plots
+- Differentially expressed gene tables
+- GSEA enrichment plots
+- ORA pathway analyses
+- KEGG overlap analyses
 
 # Author
 
