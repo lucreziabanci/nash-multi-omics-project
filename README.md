@@ -226,6 +226,62 @@ The pipeline generates:
 - ORA pathway analyses
 - KEGG overlap analyses
 
+## miRNA Analysis
+Array miRNA differential expression and pathway enrichment analysis in NASH using GPL16384 array data.
+
+This repository contains a bioinformatics workflow for the analysis of array data from liver samples:
+- Download data from GEOquery;
+- Differential expression analysis with limma;
+- Volcano plot visualization;
+- Gene Set Enrichment Analysis (GSEA);
+- Over-Representation Analysis (ORA);
+- KEGG pathway overlap analysis.
+
+This pipeline has been tested on the following dataset:
+
+- **GEO accession**: GSE59492
+- **Organism**: Homo sapiens
+
+### Usage
+
+Overview of the pipeline:
+
+1) `download_and_PCA.R`: download data from GEO and perform PCA.
+2) `differential_analysis_and_volcano_plot.R`: perform differential analysis using limma and generate volcano plot.
+2) `functional_analysis.R`: perform ORA, GSEA and KEGG analysis.
+
+### Dependencies
+
+The following annotation files should be manually downloaded and placed inside the metadata/ directory before running enrichment analyses:
+
+- `c5.go.bp.v2024.1.Hs.symbols.gmt`
+- `Human.GRCh38.p13.annot.tsv`
+
+The following R packages are required:
+
+```
+GEOquery (v2.78.0)
+Biobase (v2.70.0)
+limma (v3.66.0)
+umap (v0.2.10.0)
+ggplot2 (v4.0.0)
+clusterProfiler (v4.18.4)
+enrichplot (v1.30.5)
+org.Hs.eg.db (v3.22.0)
+KEGGREST (v1.50.0)
+VennDiagram (v1.7.3)
+
+```
+
+### Output
+The pipeline generates:
+- PCA plots
+- Volcano plots
+- Differentially expressed gene tables
+- GSEA enrichment plots
+- ORA pathway analyses
+- KEGG overlap analyses
+
 # Author
 
 Lucrezia Banci, Lorenzo Casbarra, and Matteo Ramazzotti
