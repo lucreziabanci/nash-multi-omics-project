@@ -116,6 +116,70 @@ The pipeline generates:
 - ORA pathway analyses
 - KEGG overlap analyses
 
+## Epigenomic Analysis
+Array DNA methylation differential expression and pathway enrichment analysis in NASH using GPL13534 array.
+
+This repository contains a bioinformatics workflow for the analysis of array data from liver samples:
+- Download GEO file;
+- Calculate beta and M values;
+- Quality control using mean detection p-value and density;
+- PCA analysis;
+- Differential expression analysis with limma;
+- Volcano plot visualization;
+- Gene Set Enrichment Analysis (GSEA);
+- Over-Representation Analysis (ORA);
+- KEGG pathway overlap analysis.
+
+This pipeline has been tested on the following dataset:
+
+- **GEO accession**: GSE48325
+- **Organism**: Homo sapiens
+
+### Usage
+
+Overview of the pipeline:
+
+1) `download_beta_and_M_values.R`: download GEO files, apply quality filter and calculate beta and M values.
+2) `quality_control_and_PCA.R`: perform quality control and PCA analysis.
+3) `differential_analysis_and_volcano_plot.R`: perform differential expression analysis using limma and generate volcano plots.
+4) `functional_and_enrichment_analysis.R`: perform GSEA, ORA, and KEGG pathway analyses.
+
+### Dependencies
+
+The following annotation files should be manually downloaded and placed inside the metadata/ directory before running enrichment analyses:
+
+- `c5.go.bp.v2024.1.Hs.symbols.gmt`
+- `Human.GRCh38.p13.annot.tsv`
+
+The following R packages are required:
+
+```
+GEOquery (v 2.78.0)
+limma (v 3.66.0)
+ggplot2 (v 4.0.0)
+Biobase (v 2.70.0)
+minfi (v 1.56.0)
+IlluminaHumanMethylation450kmanifest (v 0.4.0)
+lluminaHumanMethylation450kanno.ilmn12.hg19 (v 0.6.1)
+clusterProfiler (4.18.4)
+enrichplot (v 1.30.5)
+org.Hs.eg.db (v 3.22.0)
+dplyr (v 1.1.4)
+VennDiagram (v 1.7.3)
+KEGGREST (1.50.0)
+
+```
+
+### Output
+The pipeline generates:
+- PCA plots
+- Volcano plots
+- Differentially expressed gene tables
+- GSEA enrichment plots
+- ORA pathway analyses
+- KEGG overlap analyses
+
+
 # Author
 
 Lucrezia Banci, Lorenzo Casbarra, and Matteo Ramazzotti
